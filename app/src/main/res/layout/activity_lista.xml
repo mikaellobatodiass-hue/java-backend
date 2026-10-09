@@ -10,37 +10,59 @@
     android:orientation="vertical"
     tools:context=".ListaActivity">
 
-    <!-- Cabeçalho verde escuro -->
+    <!-- Cabeçalho em degradê com cantos de baixo arredondados -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/verde_escuro"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:background="@drawable/fundo_cabecalho"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="24dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Título e orçamento um embaixo do outro -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/titulo_lista"
-            android:textColor="@color/branco"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <!-- Mostra o orçamento que veio da tela inicial -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/titulo_lista"
+                android:textColor="@color/branco"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <!-- Mostra o orçamento que veio da tela inicial -->
+            <TextView
+                android:id="@+id/txtOrcamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/verde_suave"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Ícone do carrinho no canto direito -->
         <TextView
-            android:id="@+id/txtOrcamento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/verde_suave"
-            android:textSize="16sp" />
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/fundo_circulo"
+            android:gravity="center"
+            android:text="@string/icone_carrinho"
+            android:textSize="26sp" />
     </LinearLayout>
 
     <!-- Parte do meio que rola (layout_weight="1" ocupa o espaço que sobrar) -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,30 +70,41 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/instrucao_lista"
-                android:textColor="@color/texto_cinza"
-                android:textSize="15sp" />
-
-            <!-- Botão que abre a tela para cadastrar um produto novo -->
-            <Button
-                android:id="@+id/btnNovoProduto"
+            <!-- Linha com a instrução e o botão de novo produto -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:backgroundTint="@color/verde_botao"
-                android:text="@string/botao_novo_produto"
-                android:textColor="@color/branco"
-                android:textSize="16sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/instrucao_lista"
+                    android:textColor="@color/texto_cinza"
+                    android:textSize="14sp" />
+
+                <!-- Botão que abre a tela para cadastrar um produto novo -->
+                <Button
+                    android:id="@+id/btnNovoProduto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/verde_botao"
+                    android:text="@string/botao_novo_produto"
+                    android:textColor="@color/branco"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <!-- Aviso mostrado só quando não há nenhum produto no banco -->
             <TextView
                 android:id="@+id/txtVazio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:gravity="center"
                 android:padding="16dp"
                 android:text="@string/lista_vazia"
@@ -79,43 +112,67 @@
                 android:textSize="16sp"
                 android:visibility="gone" />
 
-            <!-- Os itens (CheckBox + Editar) são criados pelo Java a partir do banco,
-                 usando o layout item_produto.xml -->
+            <!-- Os itens são criados pelo Java a partir do banco,
+                 usando o layout item_produto.xml (cada um é um cartãozinho) -->
             <LinearLayout
                 android:id="@+id/containerProdutos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/fundo_cartao"
-                android:orientation="vertical"
-                android:padding="8dp" />
+                android:orientation="vertical" />
         </LinearLayout>
     </ScrollView>
 
-    <!-- Rodapé com o total marcado e o botão -->
+    <!-- Rodapé com o total marcado e o botão (cantos de cima arredondados) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/verde_escuro"
+        android:background="@drawable/fundo_rodape"
+        android:elevation="12dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingHorizontal="20dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="16dp">
 
-        <!-- Total que atualiza toda vez que um produto é marcado/desmarcado -->
+        <!-- Linha: "Total marcado" à esquerda e quantidade de itens à direita -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_total_rodape"
+                android:textColor="@color/verde_suave"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtQtdItens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/verde_suave"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Valor total, que atualiza toda vez que um produto é marcado/desmarcado -->
         <TextView
             android:id="@+id/txtTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/branco"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnVerResumo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/verde_botao"
             android:text="@string/botao_ver_resumo"
             android:textColor="@color/branco"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

@@ -5,19 +5,24 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Paleta do Carrinho Certo (tons de verde) -->
-    <color name="verde_escuro">#FF1B5E20</color>   <!-- fundo dos cabeçalhos e da tela inicial -->
-    <color name="verde_medio">#FF2E7D32</color>    <!-- detalhes e títulos -->
-    <color name="verde_botao">#FF43A047</color>    <!-- fundo dos botões -->
-    <color name="verde_claro">#FFE8F5E9</color>    <!-- fundo das telas internas -->
+    <color name="verde_escuro">#FF1B5E20</color>   <!-- cabeçalhos, rodapé e tela inicial -->
+    <color name="verde_profundo">#FF0D3B12</color> <!-- final do degradê (mais escuro) -->
+    <color name="verde_medio">#FF2E7D32</color>    <!-- títulos e botões secundários -->
+    <color name="verde_botao">#FF43A047</color>    <!-- fundo dos botões principais -->
+    <color name="verde_claro">#FFF1F8F1</color>    <!-- fundo das telas internas -->
     <color name="verde_suave">#FFA5D6A7</color>    <!-- textos secundários sobre o verde escuro -->
+    <color name="verde_destaque">#FFE8F5E9</color> <!-- fundo de ícones e destaques claros -->
 
     <!-- Cores de texto -->
     <color name="branco">#FFFFFFFF</color>
     <color name="texto_escuro">#FF212121</color>
-    <color name="texto_cinza">#FF616161</color>
+    <color name="texto_cinza">#FF757575</color>
+    <color name="borda_clara">#FFE0E0E0</color>
 
     <!-- Cores usadas no resumo (dentro / fora do orçamento) -->
     <color name="verde_ok">#FF2E7D32</color>
+    <color name="verde_ok_claro">#FFE8F5E9</color>
     <color name="vermelho_alerta">#FFC62828</color>
-    <color name="cinza_barra">#FFC8E6C9</color>
+    <color name="vermelho_claro">#FFFFEBEE</color>
+    <color name="cinza_barra">#FFE0E0E0</color>
 </resources>

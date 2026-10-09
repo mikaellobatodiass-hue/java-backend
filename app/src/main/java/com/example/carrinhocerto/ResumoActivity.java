@@ -53,22 +53,27 @@ public class ResumoActivity extends AppCompatActivity {
         // A barra vai de 0 a 100; se passar de 100% ela fica cheia
         barraOrcamento.setProgress(Math.min(percentual, 100));
 
-        // Escolhe a cor e a mensagem conforme o resultado
-        int cor;
+        // Escolhe as cores e a mensagem conforme o resultado
+        int cor;       // cor forte: barra, textos e saldo
+        int corFundo;  // cor clarinha: fundo da caixa da mensagem
         if (total <= orcamento) {
             // Dentro do orçamento: verde
             cor = ContextCompat.getColor(this, R.color.verde_ok);
+            corFundo = ContextCompat.getColor(this, R.color.verde_ok_claro);
             txtMensagem.setText(R.string.msg_dentro);
         } else {
             // Passou do orçamento: vermelho e mostra quanto passou
             cor = ContextCompat.getColor(this, R.color.vermelho_alerta);
+            corFundo = ContextCompat.getColor(this, R.color.vermelho_claro);
             double excesso = total - orcamento;
             txtMensagem.setText(getString(R.string.msg_fora, Formatador.emReais(excesso)));
         }
 
-        // Aplica a cor na barra, na mensagem e no saldo
+        // Aplica as cores na barra, no percentual, na mensagem e no saldo
         barraOrcamento.setProgressTintList(ColorStateList.valueOf(cor));
+        txtPercentual.setTextColor(cor);
         txtMensagem.setTextColor(cor);
+        txtMensagem.setBackgroundTintList(ColorStateList.valueOf(corFundo));
         txtSaldo.setTextColor(cor);
 
         // Botão "Ver Dicas": abre a DicasActivity

@@ -14,34 +14,62 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Cabeçalho verde escuro (o texto muda: "Novo Produto" ou "Editar Produto") -->
-        <TextView
-            android:id="@+id/txtTituloProduto"
+        <!-- Cabeçalho em degradê (o título muda: "Novo Produto" ou "Editar Produto") -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/verde_escuro"
-            android:padding="16dp"
-            android:textColor="@color/branco"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:background="@drawable/fundo_cabecalho"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
 
-        <!-- Cartão com os campos -->
+            <TextView
+                android:id="@+id/txtTituloProduto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/branco"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/subtitulo_produto"
+                android:textColor="@color/verde_suave"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Cartão com o ícone e os campos -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:background="@drawable/fundo_cartao"
+            android:elevation="3dp"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="24dp">
+
+            <!-- Ícone de sacola dentro de um círculo -->
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/fundo_circulo"
+                android:gravity="center"
+                android:text="@string/icone_produto"
+                android:textSize="34sp" />
 
             <!-- Nome do produto -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_nome_produto"
-                android:textColor="@color/texto_escuro"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="@color/texto_cinza"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/editNome"
@@ -51,7 +79,7 @@
                 android:autofillHints=""
                 android:hint="@string/hint_nome_produto"
                 android:inputType="textCapSentences"
-                android:minHeight="48dp"
+                android:minHeight="52dp"
                 android:textColor="@color/texto_escuro"
                 android:textSize="18sp" />
 
@@ -60,9 +88,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_preco_produto"
-                android:textColor="@color/texto_escuro"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="@color/texto_cinza"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/editPreco"
@@ -72,7 +99,7 @@
                 android:digits="0123456789.,"
                 android:hint="@string/hint_preco_produto"
                 android:inputType="numberDecimal"
-                android:minHeight="48dp"
+                android:minHeight="52dp"
                 android:textColor="@color/texto_escuro"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -81,37 +108,39 @@
         <Button
             android:id="@+id/btnSalvar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_marginHorizontal="16dp"
             android:backgroundTint="@color/verde_botao"
             android:text="@string/botao_salvar"
             android:textColor="@color/branco"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <!-- Botão Excluir (só aparece quando estamos editando um produto) -->
+        <!-- Botão Excluir (vermelho clarinho; só aparece quando estamos editando) -->
         <Button
             android:id="@+id/btnExcluir"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="@color/vermelho_alerta"
+            android:backgroundTint="@color/vermelho_claro"
             android:text="@string/botao_excluir"
-            android:textColor="@color/branco"
-            android:textSize="18sp"
+            android:textColor="@color/vermelho_alerta"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:visibility="gone" />
 
         <!-- Botão Cancelar: volta para a lista sem salvar -->
         <Button
             android:id="@+id/btnCancelar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/verde_medio"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/borda_clara"
             android:text="@string/botao_cancelar"
-            android:textColor="@color/branco"
-            android:textSize="18sp" />
+            android:textColor="@color/texto_escuro"
+            android:textSize="16sp" />
     </LinearLayout>
 </ScrollView>

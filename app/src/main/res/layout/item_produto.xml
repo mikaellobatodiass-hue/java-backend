@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Layout de UM item da lista: CheckBox do produto + botão Editar ao lado.
+<!-- Layout de UM item da lista, em formato de cartão:
+     [CheckBox]  Nome do produto        [Editar]
+                 R$ 28,90
      A ListaActivity "infla" (cria) este layout uma vez para cada produto do banco. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="2dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    android:background="@drawable/fundo_cartao"
+    android:elevation="2dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingVertical="4dp">
+    android:paddingVertical="10dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="12dp">
 
-    <!-- CheckBox com nome e preço; layout_weight="1" faz ele ocupar o espaço que sobra -->
+    <!-- CheckBox sem texto (o nome fica nos textos ao lado) -->
     <CheckBox
         android:id="@+id/checkProduto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Nome e preço um embaixo do outro; layout_weight="1" ocupa o espaço que sobra -->
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingVertical="8dp"
-        android:textColor="@color/texto_escuro"
-        android:textSize="17sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNomeProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/texto_escuro"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtPrecoProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/verde_medio"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <!-- Botão que abre a tela de edição deste produto -->
     <Button
@@ -24,10 +53,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:backgroundTint="@color/verde_medio"
+        android:backgroundTint="@color/verde_destaque"
         android:minWidth="0dp"
-        android:paddingHorizontal="12dp"
+        android:paddingHorizontal="16dp"
         android:text="@string/botao_editar"
-        android:textColor="@color/branco"
-        android:textSize="14sp" />
+        android:textColor="@color/verde_medio"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 </LinearLayout>

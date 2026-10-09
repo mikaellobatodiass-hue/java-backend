@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TELA 1 - Início: ScrollView para a tela rolar se o teclado cobrir os campos -->
+<!-- TELA 1 - Início: fundo em degradê verde, ícone do carrinho e cartão com o orçamento -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/verde_escuro"
+    android:background="@drawable/fundo_gradiente"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
@@ -15,12 +15,23 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="28dp">
+
+        <!-- Ícone do carrinho dentro de um círculo -->
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/fundo_circulo"
+            android:elevation="6dp"
+            android:gravity="center"
+            android:text="@string/icone_carrinho"
+            android:textSize="56sp" />
 
         <!-- Título do app -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="@string/titulo_app"
             android:textColor="@color/branco"
             android:textSize="36sp"
@@ -31,51 +42,81 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="36dp"
             android:text="@string/subtitulo_app"
             android:textColor="@color/verde_suave"
             android:textSize="18sp" />
 
-        <!-- Cartão branco com o campo do orçamento -->
+        <!-- Cartão branco com o campo do orçamento (elevation = sombra) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/fundo_cartao"
+            android:elevation="8dp"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="24dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_orcamento"
-                android:textColor="@color/texto_escuro"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="@color/texto_cinza"
+                android:textSize="15sp" />
 
-            <!-- Campo numérico decimal para o orçamento -->
-            <EditText
-                android:id="@+id/editOrcamento"
+            <!-- Linha com "R$" na frente do campo -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:autofillHints=""
-                android:digits="0123456789.,"
-                android:hint="@string/hint_orcamento"
-                android:inputType="numberDecimal"
-                android:minHeight="48dp"
-                android:textColor="@color/texto_escuro"
-                android:textSize="20sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/prefixo_real"
+                    android:textColor="@color/verde_medio"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <!-- Campo numérico decimal para o orçamento -->
+                <EditText
+                    android:id="@+id/editOrcamento"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:digits="0123456789.,"
+                    android:hint="@string/hint_orcamento"
+                    android:inputType="numberDecimal"
+                    android:minHeight="56dp"
+                    android:textColor="@color/texto_escuro"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <!-- Botão que abre a lista de compras -->
             <Button
                 android:id="@+id/btnComecar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/verde_botao"
                 android:text="@string/botao_comecar"
                 android:textColor="@color/branco"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
+
+        <!-- Frase no final da tela -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:text="@string/rodape_inicio"
+            android:textColor="@color/verde_suave"
+            android:textSize="14sp" />
     </LinearLayout>
 </ScrollView>

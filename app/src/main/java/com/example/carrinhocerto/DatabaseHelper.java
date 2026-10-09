@@ -16,9 +16,11 @@ import java.util.List;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    // Nome do arquivo do banco e versão (aumente a versão se mudar a estrutura da tabela)
+    // Nome do arquivo do banco e versão (aumente a versão quando mudar o banco)
+    // Versão 1: tabela com os 10 produtos iniciais
+    // Versão 2: mais 10 produtos de exemplo
     private static final String NOME_BANCO = "carrinho_certo.db";
-    private static final int VERSAO_BANCO = 1;
+    private static final int VERSAO_BANCO = 2;
 
     // Nome da tabela e das colunas
     private static final String TABELA = "produtos";
@@ -32,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Executado só uma vez, quando o banco é criado pela primeira vez.
-     * Cria a tabela e já coloca os 10 produtos iniciais.
+     * Cria a tabela e já coloca os produtos iniciais (10 originais + 10 extras).
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -53,16 +55,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         inserirInicial(db, "Frango 1kg", 15.90);
         inserirInicial(db, "Macarrão 500g", 4.99);
         inserirInicial(db, "Sabão em pó 1kg", 14.90);
+
+        // Produtos extras de exemplo
+        inserirProdutosExtras(db);
     }
 
     /**
-     * Executado quando a versão do banco aumenta.
-     * Aqui, de forma simples, apagamos a tabela e criamos de novo.
+     * Executado quando a versão do banco aumenta (app já instalado com banco antigo).
+     * Em vez de apagar tudo, só adicionamos o que é novo,
+     * assim os produtos que o usuário cadastrou continuam salvos.
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int versaoAntiga, int versaoNova) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABELA);
-        onCreate(db);
+        // Quem tinha a versão 1 recebe os 10 produtos extras da versão 2
+        if (versaoAntiga < 2) {
+            inserirProdutosExtras(db);
+        }
+    }
+
+    // Mais 10 produtos de exemplo (adicionados na versão 2 do banco)
+    private void inserirProdutosExtras(SQLiteDatabase db) {
+        inserirInicial(db, "Pão de forma 500g", 8.99);
+        inserirInicial(db, "Ovos 12 unidades", 11.90);
+        inserirInicial(db, "Manteiga 200g", 12.50);
+        inserirInicial(db, "Queijo mussarela 500g", 24.90);
+        inserirInicial(db, "Banana 1kg", 6.49);
+        inserirInicial(db, "Tomate 1kg", 7.99);
+        inserirInicial(db, "Batata 1kg", 5.99);
+        inserirInicial(db, "Papel higiênico 12 rolos", 21.90);
+        inserirInicial(db, "Detergente 500ml", 2.79);
+        inserirInicial(db, "Refrigerante 2L", 9.49);
     }
 
     // Insere um produto durante a criação do banco (usa o db recebido no onCreate)

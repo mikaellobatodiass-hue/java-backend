@@ -14,123 +14,193 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Cabeçalho verde escuro -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/verde_escuro"
-            android:padding="16dp"
-            android:text="@string/titulo_resumo"
-            android:textColor="@color/branco"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <!-- Cartão com os valores -->
+        <!-- Cabeçalho em degradê com cantos de baixo arredondados -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/fundo_cartao"
+            android:background="@drawable/fundo_cabecalho"
+            android:elevation="4dp"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
 
-            <!-- Orçamento -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_orcamento_resumo"
-                android:textColor="@color/texto_cinza"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/txtOrcamento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:textColor="@color/texto_escuro"
-                android:textSize="22sp"
+                android:text="@string/titulo_resumo"
+                android:textColor="@color/branco"
+                android:textSize="26sp"
                 android:textStyle="bold" />
 
-            <!-- Total da compra -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/subtitulo_resumo"
+                android:textColor="@color/verde_suave"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Cartão principal: total, barra de progresso e mensagem -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/fundo_cartao"
+            android:elevation="3dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Total da compra em destaque -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_total_resumo"
                 android:textColor="@color/texto_cinza"
-                android:textSize="14sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/txtTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:textColor="@color/texto_escuro"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <!-- Saldo restante -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_saldo_resumo"
-                android:textColor="@color/texto_cinza"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/txtSaldo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:textSize="22sp"
+                android:textColor="@color/texto_escuro"
+                android:textSize="38sp"
                 android:textStyle="bold" />
 
-            <!-- Barra horizontal mostrando quanto do orçamento foi usado (0 a 100%) -->
+            <!-- Linha: "Uso do orçamento" à esquerda e o percentual à direita -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_uso_orcamento"
+                    android:textColor="@color/texto_cinza"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtPercentual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Barra horizontal arredondada (0 a 100%), desenho em barra_progresso.xml -->
             <ProgressBar
                 android:id="@+id/barraOrcamento"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="16dp"
+                android:layout_height="14dp"
                 android:max="100"
-                android:progressBackgroundTint="@color/cinza_barra" />
+                android:progressDrawable="@drawable/barra_progresso" />
 
-            <!-- Texto com o percentual usado -->
-            <TextView
-                android:id="@+id/txtPercentual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textColor="@color/texto_cinza"
-                android:textSize="14sp" />
-
-            <!-- Mensagem de parabéns ou de cuidado -->
+            <!-- Mensagem de parabéns ou de cuidado, dentro de uma caixa colorida -->
             <TextView
                 android:id="@+id/txtMensagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fundo_mensagem"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:padding="14dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Dois cartões lado a lado: Orçamento e Saldo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <!-- Cartão do orçamento -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/fundo_cartao"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_orcamento_resumo"
+                    android:textColor="@color/texto_cinza"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtOrcamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/texto_escuro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Cartão do saldo -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/fundo_cartao"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_saldo_resumo"
+                    android:textColor="@color/texto_cinza"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtSaldo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Botões -->
         <Button
             android:id="@+id/btnVerDicas"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
             android:backgroundTint="@color/verde_botao"
             android:text="@string/botao_ver_dicas"
             android:textColor="@color/branco"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnVoltarLista"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/verde_medio"
             android:text="@string/botao_voltar_lista"
             android:textColor="@color/branco"

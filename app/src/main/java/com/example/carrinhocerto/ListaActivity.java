@@ -40,6 +40,7 @@ public class ListaActivity extends AppCompatActivity {
     // Componentes da tela
     private LinearLayout containerProdutos;
     private TextView txtTotal;
+    private TextView txtQtdItens;
     private TextView txtVazio;
 
     @Override
@@ -57,6 +58,7 @@ public class ListaActivity extends AppCompatActivity {
         TextView txtOrcamento = findViewById(R.id.txtOrcamento);
         containerProdutos = findViewById(R.id.containerProdutos);
         txtTotal = findViewById(R.id.txtTotal);
+        txtQtdItens = findViewById(R.id.txtQtdItens);
         txtVazio = findViewById(R.id.txtVazio);
         Button btnNovoProduto = findViewById(R.id.btnNovoProduto);
         Button btnVerResumo = findViewById(R.id.btnVerResumo);
@@ -106,10 +108,16 @@ public class ListaActivity extends AppCompatActivity {
             // Cria a linha a partir do layout item_produto.xml
             View item = inflater.inflate(R.layout.item_produto, containerProdutos, false);
             CheckBox checkProduto = item.findViewById(R.id.checkProduto);
+            TextView txtNomeProduto = item.findViewById(R.id.txtNomeProduto);
+            TextView txtPrecoProduto = item.findViewById(R.id.txtPrecoProduto);
             Button btnEditar = item.findViewById(R.id.btnEditar);
 
-            // Texto do CheckBox, ex.: "Arroz 5kg - R$ 28,90"
-            checkProduto.setText(produto.getNome() + " - " + Formatador.emReais(produto.getPreco()));
+            // Preenche o nome e o preço do produto, ex.: "Arroz 5kg" e "R$ 28,90"
+            txtNomeProduto.setText(produto.getNome());
+            txtPrecoProduto.setText(Formatador.emReais(produto.getPreco()));
+
+            // Tocar em qualquer parte do cartão também marca/desmarca o produto
+            item.setOnClickListener(v -> checkProduto.toggle());
 
             // Se o produto já estava marcado antes, continua marcado
             checkProduto.setChecked(idsMarcados.contains(produto.getId()));
@@ -150,16 +158,20 @@ public class ListaActivity extends AppCompatActivity {
     }
 
     /**
-     * Soma o preço de todos os produtos marcados e mostra no rodapé.
+     * Soma o preço de todos os produtos marcados e mostra no rodapé,
+     * junto com a quantidade de itens marcados (ex.: "3 de 10 itens").
      */
     private void atualizarTotal() {
         total = 0;
+        int quantidade = 0;
         for (Produto produto : produtos) {
             if (idsMarcados.contains(produto.getId())) {
                 total += produto.getPreco();
+                quantidade++;
             }
         }
-        txtTotal.setText(getString(R.string.total_marcado, Formatador.emReais(total)));
+        txtTotal.setText(Formatador.emReais(total));
+        txtQtdItens.setText(getString(R.string.qtd_itens, quantidade, produtos.size()));
     }
 
     /**

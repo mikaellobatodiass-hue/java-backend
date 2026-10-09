@@ -14,73 +14,103 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Cabeçalho verde escuro -->
-        <TextView
+        <!-- Cabeçalho em degradê com cantos de baixo arredondados -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/verde_escuro"
-            android:padding="16dp"
-            android:text="@string/titulo_dicas"
-            android:textColor="@color/branco"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:background="@drawable/fundo_cabecalho"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/titulo_dicas"
+                android:textColor="@color/branco"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/subtitulo_dicas"
+                android:textColor="@color/verde_suave"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <!-- Cartão com as 5 dicas -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/fundo_cartao"
+            android:elevation="3dp"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="14dp"
                 android:text="@string/secao_dicas"
                 android:textColor="@color/verde_medio"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            <!-- Cada dica tem um fundo verde clarinho arredondado -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/fundo_mensagem"
+                android:padding="12dp"
                 android:text="@string/dica_1"
                 android:textColor="@color/texto_escuro"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/fundo_mensagem"
+                android:padding="12dp"
                 android:text="@string/dica_2"
                 android:textColor="@color/texto_escuro"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/fundo_mensagem"
+                android:padding="12dp"
                 android:text="@string/dica_3"
                 android:textColor="@color/texto_escuro"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/fundo_mensagem"
+                android:padding="12dp"
                 android:text="@string/dica_4"
                 android:textColor="@color/texto_escuro"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/fundo_mensagem"
+                android:padding="12dp"
                 android:text="@string/dica_5"
                 android:textColor="@color/texto_escuro"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <!-- Cartão com os integrantes do grupo (troque os nomes no strings.xml) -->
@@ -88,7 +118,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/fundo_cartao"
+            android:elevation="3dp"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -104,7 +136,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
+                android:paddingVertical="8dp"
                 android:text="@string/integrante_1"
                 android:textColor="@color/texto_escuro"
                 android:textSize="16sp" />
@@ -112,7 +144,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
+                android:paddingVertical="8dp"
                 android:text="@string/integrante_2"
                 android:textColor="@color/texto_escuro"
                 android:textSize="16sp" />
@@ -120,7 +152,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
+                android:paddingVertical="8dp"
                 android:text="@string/integrante_3"
                 android:textColor="@color/texto_escuro"
                 android:textSize="16sp" />
@@ -128,6 +160,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
                 android:text="@string/integrante_4"
                 android:textColor="@color/texto_escuro"
                 android:textSize="16sp" />
@@ -137,11 +170,12 @@
         <Button
             android:id="@+id/btnVoltarInicio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:backgroundTint="@color/verde_botao"
             android:text="@string/botao_voltar_inicio"
             android:textColor="@color/branco"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>
