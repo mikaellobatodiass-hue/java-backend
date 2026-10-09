@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TELA 4 - Dicas de economia e integrantes do grupo -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde_claro"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    tools:context=".DicasActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Cabeçalho verde escuro -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/verde_escuro"
+            android:padding="16dp"
+            android:text="@string/titulo_dicas"
+            android:textColor="@color/branco"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Cartão com as 5 dicas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/fundo_cartao"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/secao_dicas"
+                android:textColor="@color/verde_medio"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/dica_1"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/dica_2"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/dica_3"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/dica_4"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dica_5"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Cartão com os integrantes do grupo (troque os nomes no strings.xml) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/fundo_cartao"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/secao_integrantes"
+                android:textColor="@color/verde_medio"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="@string/integrante_1"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="@string/integrante_2"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="@string/integrante_3"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/integrante_4"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Botão que volta para a tela inicial -->
+        <Button
+            android:id="@+id/btnVoltarInicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/verde_botao"
+            android:text="@string/botao_voltar_inicio"
+            android:textColor="@color/branco"
+            android:textSize="18sp" />
+    </LinearLayout>
+</ScrollView>

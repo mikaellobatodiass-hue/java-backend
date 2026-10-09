@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TELA 2 - Lista de Compras
+     Estrutura: cabeçalho fixo em cima, lista rolável no meio e rodapé fixo embaixo -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde_claro"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ListaActivity">
+
+    <!-- Cabeçalho verde escuro -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verde_escuro"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_lista"
+            android:textColor="@color/branco"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Mostra o orçamento que veio da tela inicial -->
+        <TextView
+            android:id="@+id/txtOrcamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/verde_suave"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Parte do meio que rola (layout_weight="1" ocupa o espaço que sobrar) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/instrucao_lista"
+                android:textColor="@color/texto_cinza"
+                android:textSize="15sp" />
+
+            <!-- Botão que abre a tela para cadastrar um produto novo -->
+            <Button
+                android:id="@+id/btnNovoProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/verde_botao"
+                android:text="@string/botao_novo_produto"
+                android:textColor="@color/branco"
+                android:textSize="16sp" />
+
+            <!-- Aviso mostrado só quando não há nenhum produto no banco -->
+            <TextView
+                android:id="@+id/txtVazio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/lista_vazia"
+                android:textColor="@color/texto_cinza"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <!-- Os itens (CheckBox + Editar) são criados pelo Java a partir do banco,
+                 usando o layout item_produto.xml -->
+            <LinearLayout
+                android:id="@+id/containerProdutos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fundo_cartao"
+                android:orientation="vertical"
+                android:padding="8dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Rodapé com o total marcado e o botão -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verde_escuro"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Total que atualiza toda vez que um produto é marcado/desmarcado -->
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/branco"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnVerResumo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/verde_botao"
+            android:text="@string/botao_ver_resumo"
+            android:textColor="@color/branco"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

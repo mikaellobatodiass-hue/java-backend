@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema base do aplicativo (sempre claro, com as cores verdes do colors.xml) -->
+    <style name="Base.Theme.CarrinhoCerto" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Cor principal: usada em botões, CheckBox e campos de texto -->
+        <item name="colorPrimary">@color/verde_botao</item>
+        <item name="colorOnPrimary">@color/branco</item>
+        <item name="colorSecondary">@color/verde_medio</item>
+        <!-- Cor de fundo padrão das telas -->
+        <item name="android:windowBackground">@color/verde_claro</item>
+    </style>
+
+    <style name="Theme.CarrinhoCerto" parent="Base.Theme.CarrinhoCerto" />
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TELA de cadastro/edição de produto -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde_claro"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    tools:context=".ProdutoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Cabeçalho verde escuro (o texto muda: "Novo Produto" ou "Editar Produto") -->
+        <TextView
+            android:id="@+id/txtTituloProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/verde_escuro"
+            android:padding="16dp"
+            android:textColor="@color/branco"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Cartão com os campos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/fundo_cartao"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Nome do produto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_nome_produto"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:autofillHints=""
+                android:hint="@string/hint_nome_produto"
+                android:inputType="textCapSentences"
+                android:minHeight="48dp"
+                android:textColor="@color/texto_escuro"
+                android:textSize="18sp" />
+
+            <!-- Preço do produto (numérico decimal) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_preco_produto"
+                android:textColor="@color/texto_escuro"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editPreco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:digits="0123456789.,"
+                android:hint="@string/hint_preco_produto"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"
+                android:textColor="@color/texto_escuro"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Botão Salvar -->
+        <Button
+            android:id="@+id/btnSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@color/verde_botao"
+            android:text="@string/botao_salvar"
+            android:textColor="@color/branco"
+            android:textSize="18sp" />
+
+        <!-- Botão Excluir (só aparece quando estamos editando um produto) -->
+        <Button
+            android:id="@+id/btnExcluir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/vermelho_alerta"
+            android:text="@string/botao_excluir"
+            android:textColor="@color/branco"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <!-- Botão Cancelar: volta para a lista sem salvar -->
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/verde_medio"
+            android:text="@string/botao_cancelar"
+            android:textColor="@color/branco"
+            android:textSize="18sp" />
+    </LinearLayout>
+</ScrollView>

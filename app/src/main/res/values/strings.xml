@@ -1,0 +1,68 @@
+<resources>
+    <!-- Nome do aplicativo -->
+    <string name="app_name">Carrinho Certo</string>
+
+    <!-- Tela 1 - Início -->
+    <string name="titulo_app">Carrinho Certo</string>
+    <string name="subtitulo_app">Planeje sua compra do mês</string>
+    <string name="label_orcamento">Qual é o seu orçamento do mês?</string>
+    <string name="hint_orcamento">Ex.: 500,00</string>
+    <string name="botao_comecar">Começar</string>
+    <string name="aviso_orcamento">Digite um valor de orçamento maior que zero</string>
+
+    <!-- Tela 2 - Lista de compras -->
+    <string name="titulo_lista">Lista de Compras</string>
+    <string name="instrucao_lista">Marque os produtos que você vai comprar</string>
+    <string name="orcamento_valor">Orçamento: %1$s</string>
+    <string name="total_marcado">Total marcado: %1$s</string>
+    <string name="botao_ver_resumo">Ver Resumo</string>
+    <string name="botao_novo_produto">+ Novo Produto</string>
+    <string name="botao_editar">Editar</string>
+    <string name="lista_vazia">Nenhum produto cadastrado. Toque em Novo Produto.</string>
+
+    <!-- Tela de cadastro / edição de produto -->
+    <string name="titulo_novo_produto">Novo Produto</string>
+    <string name="titulo_editar_produto">Editar Produto</string>
+    <string name="label_nome_produto">Nome do produto</string>
+    <string name="hint_nome_produto">Ex.: Arroz 5kg</string>
+    <string name="label_preco_produto">Preço (R$)</string>
+    <string name="hint_preco_produto">Ex.: 28,90</string>
+    <string name="botao_salvar">Salvar</string>
+    <string name="botao_excluir">Excluir</string>
+    <string name="botao_cancelar">Cancelar</string>
+    <string name="aviso_nome_produto">Digite o nome do produto</string>
+    <string name="aviso_preco_produto">Digite um preço maior que zero</string>
+    <string name="msg_produto_cadastrado">Produto cadastrado!</string>
+    <string name="msg_produto_atualizado">Produto atualizado!</string>
+    <string name="msg_produto_excluido">Produto excluído!</string>
+    <string name="titulo_confirmar_exclusao">Excluir produto</string>
+    <string name="msg_confirmar_exclusao">Tem certeza que deseja excluir %1$s?</string>
+    <string name="botao_sim">Sim</string>
+    <string name="botao_nao">Não</string>
+
+    <!-- Tela 3 - Resumo -->
+    <string name="titulo_resumo">Resumo da Compra</string>
+    <string name="label_orcamento_resumo">Orçamento</string>
+    <string name="label_total_resumo">Total da compra</string>
+    <string name="label_saldo_resumo">Saldo restante</string>
+    <string name="percentual_usado">Você usou %1$d%% do orçamento</string>
+    <string name="msg_dentro">Parabéns, você está dentro do orçamento!</string>
+    <string name="msg_fora">Cuidado, você passou do orçamento em %1$s</string>
+    <string name="botao_ver_dicas">Ver Dicas</string>
+    <string name="botao_voltar_lista">Voltar para a lista</string>
+
+    <!-- Tela 4 - Dicas e Sobre -->
+    <string name="titulo_dicas">Dicas e Sobre</string>
+    <string name="secao_dicas">Dicas de economia no mercado</string>
+    <string name="dica_1">1. Faça uma lista antes de sair de casa e siga ela.</string>
+    <string name="dica_2">2. Não vá ao mercado com fome, você compra mais por impulso.</string>
+    <string name="dica_3">3. Compare o preço por quilo ou por litro, não só o da embalagem.</string>
+    <string name="dica_4">4. Prefira marcas próprias do mercado, costumam ser mais baratas.</string>
+    <string name="dica_5">5. Confira as prateleiras de baixo e de cima, os produtos mais caros ficam na altura dos olhos.</string>
+    <string name="secao_integrantes">Integrantes do grupo</string>
+    <string name="integrante_1">Integrante 1 - Nome Exemplo</string>
+    <string name="integrante_2">Integrante 2 - Nome Exemplo</string>
+    <string name="integrante_3">Integrante 3 - Nome Exemplo</string>
+    <string name="integrante_4">Integrante 4 - Nome Exemplo</string>
+    <string name="botao_voltar_inicio">Voltar ao início</string>
+</resources>
